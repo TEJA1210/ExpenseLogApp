@@ -1,18 +1,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AddExpenseScreen from './screens/AddExpenseScreen';
 import ViewExpenseScreen from './screens/ViewExpenseScreen';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='AddExpense' component={AddExpenseScreen}/>
-        <Stack.Screen name='ViewExpense' component={ViewExpenseScreen}/>
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name='AddExpense' component={AddExpenseScreen} options={{ tabBarLabel: 'Add Expense'}} />
+        <Tab.Screen name='ViewExpense' component={ViewExpenseScreen} options={{ tabBarLabel: 'View Expense'}} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
